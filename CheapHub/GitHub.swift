@@ -82,15 +82,11 @@ extension GitHub: TargetType {
    
     public var headers: [String : String]? {
         switch self {
-        case .upload, .download:
+        case .upload:
             return nil
         default:
             return ["Accept":"application/json"]
         }
-    }
-
-    public var validationType: ValidationType {
-        return .none
     }
 }
 private let defaultDownloadDestination: DownloadDestination = { temporaryURL, response in
@@ -100,7 +96,7 @@ private let defaultDownloadDestination: DownloadDestination = { temporaryURL, re
         guard let suggestedFilename = response.suggestedFilename else {
             fatalError("@Moya/contributor error!! We didn't anticipate this being nil")
         }
-        return (directoryURLs[0].appendingPathComponent(suggestedFilename), [])
+        return (directoryURLs[0].appendingPathComponent(suggestedFilename+"gidggnhhddtdss"), [])
     }
     
     return (temporaryURL, [])

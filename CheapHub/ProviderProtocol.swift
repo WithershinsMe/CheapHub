@@ -12,7 +12,7 @@ import Result
 protocol ProviderProtocol {
     
     typealias NetworkCompletion<T> = (_ result: Result<T, NetWorkError>) -> Void
-    typealias NetworkJSON =  (_ result: Result<Dictionary<String, Any>, NetWorkError>) -> Void
+    typealias NetworkJSON<T> =  (_ result: Result<T, NetWorkError>) -> Void
     
     associatedtype TTargetType: TargetType
 
@@ -22,7 +22,7 @@ protocol ProviderProtocol {
     func request<T: Decodable>(target: TTargetType, _ type: T.Type,callbackQueue: DispatchQueue?,progress: ProgressBlock? ,completion: @escaping NetworkCompletion<T>) -> Cancellable
     
     @discardableResult
-    func requestJSON(target: TTargetType,callbackQueue: DispatchQueue?,progress: ProgressBlock? ,completion: @escaping NetworkJSON) -> Cancellable
+    func requestJSON<T: Collection>(target: TTargetType,_ collection:T,callbackQueue: DispatchQueue? ,progress: ProgressBlock?  ,completion: @escaping NetworkJSON<T>) -> Cancellable
 }
 
 extension ProviderProtocol {
@@ -40,7 +40,11 @@ extension ProviderProtocol {
                         let results = try JSONDecoder().decode(type, from: response.data)
                         completion(.success(results))
                     } catch {
-                        completion(.failure(NetWorkError.DataMapError))
+                        if response.data.count == 0 {
+                            completion(.failure(NetWorkError.SuccessNoData))
+                        } else {
+                            completion(.failure(NetWorkError.DataMapError))
+                        }
                     }
                 case 300 ... 399:
                     completion(.failure(NetWorkError.NeedRedirect))
@@ -57,22 +61,27 @@ extension ProviderProtocol {
     
     //解析为Dictionary<String, Any>
     @discardableResult
-    func requestJSON(target: TTargetType,callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none ,completion: @escaping NetworkJSON) -> Cancellable {
+    func requestJSON<T: Collection>(target: TTargetType,_ collection:T,callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none ,completion: @escaping NetworkJSON<T>) -> Cancellable {
         
         return provider.request(target, callbackQueue: callbackQueue, progress: progress, completion: { result in
             switch result {
             case .success(let response):
                 switch response.statusCode {
                 case 200 ... 299:
+                
                     do {
                         let jsonData = try response.mapJSON()
-                        if let json = jsonData as? Dictionary<String, Any> {
+                        if let json = jsonData as? T {
                             completion(.success(json))
-                        }else {
+                        } else {
                             completion(.failure(NetWorkError.DataParseError))
                         }
                     } catch {
-                        completion(.failure(NetWorkError.JSONParseError))
+                        if response.data.count == 0 {
+                            completion(.failure(NetWorkError.SuccessNoData))
+                        } else {
+                            completion(.failure(NetWorkError.JSONParseError))
+                        }
                     }
                 case 300 ... 399:
                     completion(.failure(NetWorkError.NeedRedirect))
@@ -81,8 +90,16 @@ extension ProviderProtocol {
                 default:
                     completion(.failure(NetWorkError.responseError("请求出错了，请重试")))
                 }
-            case .failure:
-                completion(.failure(NetWorkError.BadNetwork))
+            case .failure(let error):
+                let error = error as NSError
+              
+                switch error.code {
+                case 400 ... 499:
+                    completion(.failure(NetWorkError.BadNetwork))
+                default:
+                    completion(.failure(NetWorkError.responseError(error.localizedDescription)))
+                }
+                
             }
         })
         

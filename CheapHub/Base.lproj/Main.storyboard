@@ -57,8 +57,7 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="getUserInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lb1-Jj-W9j"/>
-                                            <action selector="testDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7jP-pW-ybn"/>
+                                            <action selector="testDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f8F-M1-c37"/>
                                         </connections>
                                     </button>
                                 </subviews>

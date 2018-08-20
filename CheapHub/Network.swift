@@ -25,7 +25,8 @@ public enum NetWorkError: Error {
     case responseError(String)
     case JSONParseError
     case DataParseError
-   
+    case SuccessNoData
+    
     var rawValue: String {
         switch self {
         case .JSONParseError:
@@ -47,6 +48,8 @@ public enum NetWorkError: Error {
             return ""
         case .DataMapError:
             return "请重试"
+        case .SuccessNoData:
+            return "请求成功但没有返回数据"
         }
     }
 }
@@ -61,7 +64,7 @@ typealias NetworkResult<T> =  (_ result: Result<T, NetWorkError>) -> Void
 
 class Network: ProviderProtocol {
 
-    lazy var provider = MoyaProvider<GitHub>(plugins: [networkPlugin])
+    lazy var provider = MoyaProvider<GitHub>(plugins: [networkPlugin,NetworkLoggerPlugin(verbose: true)])
 
     typealias TTargetType = GitHub
     
@@ -108,7 +111,7 @@ class Network: ProviderProtocol {
     // upload
     func upload(_ data: Data, callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none, completion: @escaping NetworkResult<String>) {
         
-        requestJSON(target: GitHub.upload(data: data)) { result in
+        requestJSON(target: GitHub.upload(data: data), Dictionary<String, Any>()) { result in
             switch result {
             case .success(let response):
                 print(response)
@@ -119,7 +122,7 @@ class Network: ProviderProtocol {
     }
     // download
     func download(_ path: String, callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none, completion: @escaping NetworkResult<String>) {
-        requestJSON(target: GitHub.download("logo_github.png"), callbackQueue: callbackQueue, progress: progress) { result in
+        requestJSON(target: GitHub.download("logo_github.png"), Array<Any>()) { result in
             switch result {
             case .success(let response):
                 print(response)
