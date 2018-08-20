@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
         
-        Network.manager.networkDelegate = self
+        Network.Manager.networkDelegate = self
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: NSKeyValueObservingOptions.new, context: nil)
     }
@@ -33,17 +33,15 @@ class LoginViewController: UIViewController {
             
         }
     }
-    
 }
 extension LoginViewController: NetworkProtocol {
-    func networkActivityBegin() {
-        indicator.startAnimating()
+    func networkActivityBegin(_ targetType: TargetType) {
+          indicator.startAnimating()
     }
     
-    func networkActivityEnd() {
-        indicator.stopAnimating()
+    func networkActivityEnd(_ targetType: TargetType) {
+         indicator.stopAnimating()
     }
-    
 }
 extension LoginViewController: WKNavigationDelegate {
     //URL请求之前询问
@@ -159,7 +157,7 @@ extension LoginViewController {
             return
         }
         
-        Network.manager.getOauthAccessToken(code, state) { [weak self] result in
+        AuthAPI.manager.getOauthAccessToken(code, state) { [weak self] result in
             switch result {
             case .success(let token):
                 UserDefaults.standard.set(token, forKey: UserDefaults.Keys.accessToken)

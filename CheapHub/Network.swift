@@ -10,13 +10,13 @@ import Foundation
 import Moya
 import Result
 
-enum APIEnvironment {
+public enum APIEnvironment {
     case staging
     case qa
     case production
 }
 
-enum NetWorkError: Error {
+public enum NetWorkError: Error {
     case NoError
     case BadNetwork
     case NeedRedirect
@@ -47,135 +47,88 @@ enum NetWorkError: Error {
             return ""
         case .DataMapError:
             return "请重试"
-
         }
     }
 }
 
 protocol NetworkProtocol: AnyObject  {
-    func networkActivityBegin()
-    func networkActivityEnd()
+    func networkActivityBegin(_ targetType: TargetType)
+    func networkActivityEnd(_ targetType: TargetType)
 }
 
-
-fileprivate typealias NetworkJSON =  (_ result: Result<Dictionary<String, Any>, NetWorkError>) -> Void
-fileprivate typealias NetworkCompletion<T> = (_ result: Result<T, NetWorkError>) -> Void
 
 typealias NetworkResult<T> =  (_ result: Result<T, NetWorkError>) -> Void
 
-private protocol Networkable {
-    var provider: MoyaProvider<GitHub> { get }
-    
-   func getOauthAccessToken(_ code: String, _ state: String, completion: @escaping NetworkResult<String>)
-   func getUserInfo(_ completion: @escaping NetworkResult<User>)
-}
+class Network: ProviderProtocol {
 
-class Network: Networkable {
-   
-    static let manager = Network()
-    fileprivate init() { }
+    lazy var provider = MoyaProvider<GitHub>(plugins: [networkPlugin])
+
+    typealias TTargetType = GitHub
+    
+    static let Manager = Network()
+    
+    static let User = UserAPI.manager
+    static let Auth = AuthAPI.manager
+    
+    lazy var notificationToken: NotificationToken = NotificationCenter.default.observe(name: NSNotification.Name.NetworkActivityPluginChange, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
+        guard let `self` = self else {
+            return
+        }
+        guard let info = notification.userInfo,let targetType = info["targetType"] as? TargetType, let changeType = info["changeType"] as? NetworkActivityChangeType else {
+            return
+        }
+        
+        switch (changeType) {
+        case .began:
+            self.networkDelegate?.networkActivityBegin(targetType)
+        case .ended:
+            self.networkDelegate?.networkActivityEnd(targetType)
+        }
+    }
+    
+    fileprivate init() {
+        let _ = self.notificationToken
+    }
     
     static let environment = APIEnvironment.staging
     
     weak var networkDelegate: NetworkProtocol?
     
-
     private lazy var networkPlugin = NetworkActivityPlugin.init { [weak self] (changeType, targetType) in
         print("\(targetType) + \(changeType)")
         
         switch (changeType) {
         case .began:
-            self?.networkDelegate?.networkActivityBegin()
+            self?.networkDelegate?.networkActivityBegin(targetType)
         case .ended:
-            self?.networkDelegate?.networkActivityEnd()
+            self?.networkDelegate?.networkActivityEnd(targetType)
         }
     }
-    lazy var provider = MoyaProvider<GitHub>(plugins: [networkPlugin])
 
-    func getUserInfo(_ completion: @escaping NetworkResult<User>) {
-        guard let accessToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.accessToken) else {
-            completion(.failure(NetWorkError.NeedAuthorization))
-            return
-        }
+    // upload
+    func upload(_ data: Data, callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none, completion: @escaping NetworkResult<String>) {
         
-        request(target: GitHub.user(accessToken: accessToken), User.self) { result in
-            completion(result)
-        }
-    }
-    
-    //获取授权Token
-    func getOauthAccessToken(_ code: String, _ state: String, completion: @escaping NetworkResult<String>) {
-        requestJSON(target: GitHub.login(code: code, state: state)) { response in
-            switch response {
+        requestJSON(target: GitHub.upload(data: data)) { result in
+            switch result {
             case .success(let response):
-                if let tokenString = response["access_token"] as? String {
-                    completion(.success(tokenString))
-                } else {
-                    completion(.failure(NetWorkError.NeedAuthorization))
-                }
+                print(response)
             case .failure(let error):
-                completion(.failure(error))
+                print(error.rawValue)
             }
         }
     }
-    
-    //直接转化为Module对象
-    @discardableResult
-    fileprivate func request<T: Decodable>(target: GitHub, _ type: T.Type,completion: @escaping NetworkCompletion<T>) -> Cancellable {
-        return provider.request(target) { result in
+    // download
+    func download(_ path: String, callbackQueue: DispatchQueue? = .none,progress: ProgressBlock? = .none, completion: @escaping NetworkResult<String>) {
+        requestJSON(target: GitHub.download("logo_github.png"), callbackQueue: callbackQueue, progress: progress) { result in
             switch result {
             case .success(let response):
-                switch response.statusCode {
-                case 200 ... 299:
-                    do {
-                        let results = try JSONDecoder().decode(type, from: response.data)
-                        completion(.success(results))
-                    } catch {
-                        completion(.failure(NetWorkError.DataMapError))
-                    }
-                case 300 ... 399:
-                    completion(.failure(NetWorkError.NeedRedirect))
-                case 400 ... 499:
-                    completion(.failure(NetWorkError.NeedAuthorization))
-                default:
-                    completion(.failure(NetWorkError.responseError("请求出错了，请重试")))
-                }
-            case .failure:
-                completion(.failure(NetWorkError.BadNetwork))
-            }
-        }
-    }
-    
-    //解析为Dictionary<String, Any>
-    @discardableResult
-    fileprivate func requestJSON(target: GitHub,completion: @escaping NetworkJSON) -> Cancellable {
-        return provider.request(target) { result in
-            switch result {
-            case .success(let response):
-                switch response.statusCode {
-                case 200 ... 299:
-                    do {
-                        let jsonData = try response.mapJSON()
-                        if let json = jsonData as? Dictionary<String, Any> {
-                            completion(.success(json))
-                        }else {
-                            completion(.failure(NetWorkError.DataParseError))
-                        }
-                    } catch {
-                        completion(.failure(NetWorkError.JSONParseError))
-                    }
-                case 300 ... 399:
-                    completion(.failure(NetWorkError.NeedRedirect))
-                case 400 ... 499:
-                    completion(.failure(NetWorkError.NeedAuthorization))
-                default:
-                    completion(.failure(NetWorkError.responseError("请求出错了，请重试")))
-                }
-            case .failure:
-                completion(.failure(NetWorkError.BadNetwork))
+                print(response)
+            case .failure(let error):
+                print(error.rawValue)
             }
         }
     }
 }
+
 
 

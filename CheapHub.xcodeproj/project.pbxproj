@@ -27,6 +27,12 @@
 		4744274D2126EBD100C74411 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744274C2126EBD100C74411 /* UIViewController+Extension.swift */; };
 		4744274F2126F29100C74411 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744274E2126F29100C74411 /* UserDefaults+Extension.swift */; };
 		4744275321280EB600C74411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744275221280EB600C74411 /* User.swift */; };
+		4744275A2129754400C74411 /* testData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474427592129754400C74411 /* testData.swift */; };
+		4744275C212A50D600C74411 /* ProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744275B212A50D600C74411 /* ProviderProtocol.swift */; };
+		47442760212A6F4B00C74411 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744275F212A6F4A00C74411 /* UserAPI.swift */; };
+		47442762212A72B700C74411 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442761212A72B700C74411 /* AuthAPI.swift */; };
+		47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442763212A97DF00C74411 /* Notification+Extension.swift */; };
+		47442766212A9C3800C74411 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442765212A9C3800C74411 /* NotificationToken.swift */; };
 		5A36F3D5889F87AEE9E41E60 /* Pods_CheapHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */; };
 		A4CD07434A566B328F800AFB /* Pods_CheapHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9C79C290617B0A09004053 /* Pods_CheapHub.framework */; };
 		A592B03DDE5A5019038F55F3 /* Pods_CheapHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */; };
@@ -89,6 +95,12 @@
 		4744274C2126EBD100C74411 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4744274E2126F29100C74411 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		4744275221280EB600C74411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		474427592129754400C74411 /* testData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testData.swift; sourceTree = "<group>"; };
+		4744275B212A50D600C74411 /* ProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProtocol.swift; sourceTree = "<group>"; };
+		4744275F212A6F4A00C74411 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		47442761212A72B700C74411 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		47442763212A97DF00C74411 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		47442765212A9C3800C74411 /* NotificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
 		55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89834719A278F045B27AEF2B /* Pods-CheapHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheapHubUITests/Pods-CheapHubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,9 +168,13 @@
 				474427052124105E00C74411 /* AppDelegate.swift */,
 				47442744212598B000C74411 /* LoginViewController.swift */,
 				474427502126F29A00C74411 /* Extensions */,
-				47442733212417C700C74411 /* GitHub.swift */,
 				4744274A2126E62400C74411 /* APPStoryboard.swift */,
 				474427482126B33700C74411 /* Network.swift */,
+				4744275F212A6F4A00C74411 /* UserAPI.swift */,
+				47442761212A72B700C74411 /* AuthAPI.swift */,
+				4744275B212A50D600C74411 /* ProviderProtocol.swift */,
+				47442733212417C700C74411 /* GitHub.swift */,
+				474427592129754400C74411 /* testData.swift */,
 				4744275221280EB600C74411 /* User.swift */,
 				474427072124105E00C74411 /* ViewController.swift */,
 				474427402125290B00C74411 /* BoxService.swift */,
@@ -197,6 +213,8 @@
 			children = (
 				4744274E2126F29100C74411 /* UserDefaults+Extension.swift */,
 				4744274C2126EBD100C74411 /* UIViewController+Extension.swift */,
+				47442763212A97DF00C74411 /* Notification+Extension.swift */,
+				47442765212A9C3800C74411 /* NotificationToken.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -537,18 +555,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4744275321280EB600C74411 /* User.swift in Sources */,
+				47442760212A6F4B00C74411 /* UserAPI.swift in Sources */,
+				47442766212A9C3800C74411 /* NotificationToken.swift in Sources */,
 				47442745212598B000C74411 /* LoginViewController.swift in Sources */,
+				47442762212A72B700C74411 /* AuthAPI.swift in Sources */,
 				4744274D2126EBD100C74411 /* UIViewController+Extension.swift in Sources */,
 				474427492126B33700C74411 /* Network.swift in Sources */,
 				4744273D212525E300C74411 /* VersionService.swift in Sources */,
 				47442734212417C700C74411 /* GitHub.swift in Sources */,
+				47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */,
 				4744273B2125239E00C74411 /* CameraViewController.swift in Sources */,
 				474427412125290B00C74411 /* BoxService.swift in Sources */,
 				4744274B2126E62400C74411 /* APPStoryboard.swift in Sources */,
 				474427082124105E00C74411 /* ViewController.swift in Sources */,
 				474427062124105E00C74411 /* AppDelegate.swift in Sources */,
+				4744275C212A50D600C74411 /* ProviderProtocol.swift in Sources */,
 				4744274F2126F29100C74411 /* UserDefaults+Extension.swift in Sources */,
 				4744273F2125263F00C74411 /* Image+Extension.swift in Sources */,
+				4744275A2129754400C74411 /* testData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

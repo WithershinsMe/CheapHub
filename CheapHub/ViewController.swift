@@ -38,8 +38,31 @@ class ViewController: UIViewController {
 //        }
     }
 
+    @IBAction func testDownload(_ sender: UIButton) {
+        Network.Manager.download("logo_github.png", callbackQueue: DispatchQueue.main, progress: progressClosure) { result in
+            
+            var color: UIColor
+            switch result {
+            case .success:
+                color = .green
+            case .failure:
+                color = .red
+            }
+        }
+    }
+    lazy var progressClosure: ProgressBlock = { response in
+        print(CGFloat(response.progress))
+    }
+    
+    @IBAction func TestUpload(_ sender: UIButton) {
+        Network.Manager.upload(TestData.animatedBirdData) { response in
+            
+        }
+        
+    }
     @IBAction func getUserInfo(_ sender: UIButton) {
-        Network.manager.getUserInfo { result in
+        
+        Network.User.getUserInfo { result in
             switch result {
             case .success(let user):
                 print(user)
@@ -51,7 +74,7 @@ class ViewController: UIViewController {
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         
         if let loginVC = LoginViewController.instantiateFromAppStoryboard(appStoryboard: AppStoryboard.Main) {
-            loginVC.url = URL(string: "https://github.com/login/oauth/authorize/?client_id=\(GitHub.clientID)&state=1995&redirect_uri=\(GitHub.redirectURL)&scope=public_repo,user,delete_repo")
+            loginVC.url = URL(string: "https://github.com/login/oauth/authorize/?client_id=\(AuthConstant.clientID)&state=1995&redirect_uri=\(AuthConstant.redirectURL)&scope=public_repo,user,delete_repo")
              present(loginVC, animated: true, completion: nil)
         }
     }
