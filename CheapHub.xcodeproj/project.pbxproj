@@ -33,6 +33,11 @@
 		47442762212A72B700C74411 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442761212A72B700C74411 /* AuthAPI.swift */; };
 		47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442763212A97DF00C74411 /* Notification+Extension.swift */; };
 		47442766212A9C3800C74411 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442765212A9C3800C74411 /* NotificationToken.swift */; };
+		47C0352D212E4ABE00B27827 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0352C212E4ABE00B27827 /* MapViewController.swift */; };
+		47C03531212E4B6B00B27827 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C03530212E4B6B00B27827 /* BottomSheet.storyboard */; };
+		47C03535212E4C1200B27827 /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03534212E4C1200B27827 /* CountriesTableViewController.swift */; };
+		47C03537212E4C5B00B27827 /* BottomSheetContrinerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03536212E4C5B00B27827 /* BottomSheetContrinerViewController.swift */; };
+		47C03539212E4DEA00B27827 /* BottomSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */; };
 		5A36F3D5889F87AEE9E41E60 /* Pods_CheapHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */; };
 		A4CD07434A566B328F800AFB /* Pods_CheapHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9C79C290617B0A09004053 /* Pods_CheapHub.framework */; };
 		A592B03DDE5A5019038F55F3 /* Pods_CheapHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */; };
@@ -101,6 +106,11 @@
 		47442761212A72B700C74411 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		47442763212A97DF00C74411 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		47442765212A9C3800C74411 /* NotificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
+		47C0352C212E4ABE00B27827 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		47C03530212E4B6B00B27827 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
+		47C03534212E4C1200B27827 /* CountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
+		47C03536212E4C5B00B27827 /* BottomSheetContrinerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetContrinerViewController.swift; sourceTree = "<group>"; };
+		47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetBackgroundView.swift; sourceTree = "<group>"; };
 		55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89834719A278F045B27AEF2B /* Pods-CheapHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheapHubUITests/Pods-CheapHubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 			children = (
 				474427052124105E00C74411 /* AppDelegate.swift */,
 				47442744212598B000C74411 /* LoginViewController.swift */,
+				47C0352B212E4A8B00B27827 /* New Group */,
 				474427502126F29A00C74411 /* Extensions */,
 				4744274A2126E62400C74411 /* APPStoryboard.swift */,
 				474427482126B33700C74411 /* Network.swift */,
@@ -217,6 +228,18 @@
 				47442765212A9C3800C74411 /* NotificationToken.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		47C0352B212E4A8B00B27827 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				47C0352C212E4ABE00B27827 /* MapViewController.swift */,
+				47C03530212E4B6B00B27827 /* BottomSheet.storyboard */,
+				47C03534212E4C1200B27827 /* CountriesTableViewController.swift */,
+				47C03536212E4C5B00B27827 /* BottomSheetContrinerViewController.swift */,
+				47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		6F926C3AD81FFD09553EB70C /* Pods */ = {
@@ -360,6 +383,7 @@
 			files = (
 				474427102124106000C74411 /* LaunchScreen.storyboard in Resources */,
 				47442739212428C100C74411 /* RegisterViewController.graphql in Resources */,
+				47C03531212E4B6B00B27827 /* BottomSheet.storyboard in Resources */,
 				4744270D2124106000C74411 /* Assets.xcassets in Resources */,
 				4744270B2124105E00C74411 /* Main.storyboard in Resources */,
 			);
@@ -556,11 +580,14 @@
 			files = (
 				4744275321280EB600C74411 /* User.swift in Sources */,
 				47442760212A6F4B00C74411 /* UserAPI.swift in Sources */,
+				47C03537212E4C5B00B27827 /* BottomSheetContrinerViewController.swift in Sources */,
 				47442766212A9C3800C74411 /* NotificationToken.swift in Sources */,
+				47C0352D212E4ABE00B27827 /* MapViewController.swift in Sources */,
 				47442745212598B000C74411 /* LoginViewController.swift in Sources */,
 				47442762212A72B700C74411 /* AuthAPI.swift in Sources */,
 				4744274D2126EBD100C74411 /* UIViewController+Extension.swift in Sources */,
 				474427492126B33700C74411 /* Network.swift in Sources */,
+				47C03539212E4DEA00B27827 /* BottomSheetBackgroundView.swift in Sources */,
 				4744273D212525E300C74411 /* VersionService.swift in Sources */,
 				47442734212417C700C74411 /* GitHub.swift in Sources */,
 				47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */,
@@ -572,6 +599,7 @@
 				4744275C212A50D600C74411 /* ProviderProtocol.swift in Sources */,
 				4744274F2126F29100C74411 /* UserDefaults+Extension.swift in Sources */,
 				4744273F2125263F00C74411 /* Image+Extension.swift in Sources */,
+				47C03535212E4C1200B27827 /* CountriesTableViewController.swift in Sources */,
 				4744275A2129754400C74411 /* testData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
