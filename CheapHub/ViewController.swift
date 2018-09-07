@@ -23,6 +23,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 //
 //        cameraController.view.frame = view.bounds
 //        add(childController: cameraController)
@@ -65,7 +67,7 @@ class ViewController: UIViewController {
         Network.User.getUserInfo { result in
             switch result {
             case .success(let user):
-                print(user)
+                print(user.value)
             case .failure(let error):
                 print(error.rawValue)
             }

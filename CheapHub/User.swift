@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User {
+struct User: DictionaryValue {
     let loginname: String
     let id: Int
     var nodeID: String

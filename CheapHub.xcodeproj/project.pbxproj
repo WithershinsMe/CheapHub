@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4716FB85213689FF003A0976 /* Animation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4716FB84213689FF003A0976 /* Animation.storyboard */; };
+		4716FB8921368B6D003A0976 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716FB8821368B6D003A0976 /* AnimationViewController.swift */; };
 		474427062124105E00C74411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474427052124105E00C74411 /* AppDelegate.swift */; };
 		474427082124105E00C74411 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474427072124105E00C74411 /* ViewController.swift */; };
 		4744270B2124105E00C74411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474427092124105E00C74411 /* Main.storyboard */; };
@@ -33,11 +35,19 @@
 		47442762212A72B700C74411 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442761212A72B700C74411 /* AuthAPI.swift */; };
 		47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442763212A97DF00C74411 /* Notification+Extension.swift */; };
 		47442766212A9C3800C74411 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47442765212A9C3800C74411 /* NotificationToken.swift */; };
+		476A67442138D49B00C47F72 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A67432138D49B00C47F72 /* UITableViewCell+Extensions.swift */; };
+		476A67492139440D00C47F72 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A67482139440D00C47F72 /* URLParameterEncoder.swift */; };
+		476A674C2139442700C47F72 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A674A2139442700C47F72 /* ParameterEncoding.swift */; };
+		476A674F2139485E00C47F72 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A674E2139485E00C47F72 /* JSONParameterEncoder.swift */; };
+		476A6751213949A300C47F72 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A6750213949A300C47F72 /* NetworkRouter.swift */; };
 		47C0352D212E4ABE00B27827 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0352C212E4ABE00B27827 /* MapViewController.swift */; };
 		47C03531212E4B6B00B27827 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C03530212E4B6B00B27827 /* BottomSheet.storyboard */; };
 		47C03535212E4C1200B27827 /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03534212E4C1200B27827 /* CountriesTableViewController.swift */; };
 		47C03537212E4C5B00B27827 /* BottomSheetContrinerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03536212E4C5B00B27827 /* BottomSheetContrinerViewController.swift */; };
 		47C03539212E4DEA00B27827 /* BottomSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */; };
+		47DEEBCF2140CEB900A47A71 /* ObjectToDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DEEBCE2140CEB900A47A71 /* ObjectToDictionary.swift */; };
+		47DEEBD12142116100A47A71 /* TemporaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DEEBD02142116100A47A71 /* TemporaryFile.swift */; };
+		47DEEBD3214217B700A47A71 /* TempFileDirectoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DEEBD2214217B700A47A71 /* TempFileDirectoryTest.swift */; };
 		5A36F3D5889F87AEE9E41E60 /* Pods_CheapHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */; };
 		A4CD07434A566B328F800AFB /* Pods_CheapHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9C79C290617B0A09004053 /* Pods_CheapHub.framework */; };
 		A592B03DDE5A5019038F55F3 /* Pods_CheapHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */; };
@@ -74,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		2E9C79C290617B0A09004053 /* Pods_CheapHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4716FB84213689FF003A0976 /* Animation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Animation.storyboard; sourceTree = "<group>"; };
+		4716FB8821368B6D003A0976 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		474427022124105E00C74411 /* CheapHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		474427052124105E00C74411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		474427072124105E00C74411 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,11 +118,20 @@
 		47442761212A72B700C74411 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		47442763212A97DF00C74411 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		47442765212A9C3800C74411 /* NotificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
+		476A67432138D49B00C47F72 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		476A67452139431800C47F72 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EndPoint.swift; path = /Users/gk/Module/CheapHub/EndPoint.swift; sourceTree = "<absolute>"; };
+		476A67482139440D00C47F72 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		476A674A2139442700C47F72 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		476A674E2139485E00C47F72 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		476A6750213949A300C47F72 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		47C0352C212E4ABE00B27827 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C03530212E4B6B00B27827 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
 		47C03534212E4C1200B27827 /* CountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
 		47C03536212E4C5B00B27827 /* BottomSheetContrinerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetContrinerViewController.swift; sourceTree = "<group>"; };
 		47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetBackgroundView.swift; sourceTree = "<group>"; };
+		47DEEBCE2140CEB900A47A71 /* ObjectToDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectToDictionary.swift; sourceTree = "<group>"; };
+		47DEEBD02142116100A47A71 /* TemporaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryFile.swift; sourceTree = "<group>"; };
+		47DEEBD2214217B700A47A71 /* TempFileDirectoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFileDirectoryTest.swift; sourceTree = "<group>"; };
 		55BDC525C1450F171EAEB8A8 /* Pods_CheapHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A6E16742BFBBBF165D77D4 /* Pods_CheapHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89834719A278F045B27AEF2B /* Pods-CheapHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheapHubUITests/Pods-CheapHubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +171,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4716FB83213689E2003A0976 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4716FB84213689FF003A0976 /* Animation.storyboard */,
+				4716FB8821368B6D003A0976 /* AnimationViewController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		474426F92124105E00C74411 = {
 			isa = PBXGroup;
 			children = (
@@ -175,10 +205,13 @@
 		474427042124105E00C74411 /* CheapHub */ = {
 			isa = PBXGroup;
 			children = (
+				476A67472139431800C47F72 /* NetWorkLayer */,
 				474427052124105E00C74411 /* AppDelegate.swift */,
 				47442744212598B000C74411 /* LoginViewController.swift */,
+				4716FB83213689E2003A0976 /* Animation */,
 				47C0352B212E4A8B00B27827 /* New Group */,
 				474427502126F29A00C74411 /* Extensions */,
+				47DEEBCD2140CE5600A47A71 /* Helper */,
 				4744274A2126E62400C74411 /* APPStoryboard.swift */,
 				474427482126B33700C74411 /* Network.swift */,
 				4744275F212A6F4A00C74411 /* UserAPI.swift */,
@@ -206,6 +239,7 @@
 			children = (
 				4744271A2124106000C74411 /* CheapHubTests.swift */,
 				4744271C2124106000C74411 /* Info.plist */,
+				47DEEBD2214217B700A47A71 /* TempFileDirectoryTest.swift */,
 			);
 			path = CheapHubTests;
 			sourceTree = "<group>";
@@ -226,8 +260,22 @@
 				4744274C2126EBD100C74411 /* UIViewController+Extension.swift */,
 				47442763212A97DF00C74411 /* Notification+Extension.swift */,
 				47442765212A9C3800C74411 /* NotificationToken.swift */,
+				476A67432138D49B00C47F72 /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		476A67472139431800C47F72 /* NetWorkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				476A67452139431800C47F72 /* EndPoint.swift */,
+				476A674A2139442700C47F72 /* ParameterEncoding.swift */,
+				476A67482139440D00C47F72 /* URLParameterEncoder.swift */,
+				476A674E2139485E00C47F72 /* JSONParameterEncoder.swift */,
+				476A6750213949A300C47F72 /* NetworkRouter.swift */,
+			);
+			name = NetWorkLayer;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		47C0352B212E4A8B00B27827 /* New Group */ = {
@@ -240,6 +288,15 @@
 				47C03538212E4DEA00B27827 /* BottomSheetBackgroundView.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		47DEEBCD2140CE5600A47A71 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				47DEEBCE2140CEB900A47A71 /* ObjectToDictionary.swift */,
+				47DEEBD02142116100A47A71 /* TemporaryFile.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		6F926C3AD81FFD09553EB70C /* Pods */ = {
@@ -384,6 +441,7 @@
 				474427102124106000C74411 /* LaunchScreen.storyboard in Resources */,
 				47442739212428C100C74411 /* RegisterViewController.graphql in Resources */,
 				47C03531212E4B6B00B27827 /* BottomSheet.storyboard in Resources */,
+				4716FB85213689FF003A0976 /* Animation.storyboard in Resources */,
 				4744270D2124106000C74411 /* Assets.xcassets in Resources */,
 				4744270B2124105E00C74411 /* Main.storyboard in Resources */,
 			);
@@ -586,20 +644,28 @@
 				47442745212598B000C74411 /* LoginViewController.swift in Sources */,
 				47442762212A72B700C74411 /* AuthAPI.swift in Sources */,
 				4744274D2126EBD100C74411 /* UIViewController+Extension.swift in Sources */,
+				47DEEBD12142116100A47A71 /* TemporaryFile.swift in Sources */,
+				476A67492139440D00C47F72 /* URLParameterEncoder.swift in Sources */,
 				474427492126B33700C74411 /* Network.swift in Sources */,
 				47C03539212E4DEA00B27827 /* BottomSheetBackgroundView.swift in Sources */,
 				4744273D212525E300C74411 /* VersionService.swift in Sources */,
+				476A674F2139485E00C47F72 /* JSONParameterEncoder.swift in Sources */,
 				47442734212417C700C74411 /* GitHub.swift in Sources */,
 				47442764212A97DF00C74411 /* Notification+Extension.swift in Sources */,
 				4744273B2125239E00C74411 /* CameraViewController.swift in Sources */,
 				474427412125290B00C74411 /* BoxService.swift in Sources */,
+				4716FB8921368B6D003A0976 /* AnimationViewController.swift in Sources */,
+				476A6751213949A300C47F72 /* NetworkRouter.swift in Sources */,
 				4744274B2126E62400C74411 /* APPStoryboard.swift in Sources */,
+				476A674C2139442700C47F72 /* ParameterEncoding.swift in Sources */,
 				474427082124105E00C74411 /* ViewController.swift in Sources */,
 				474427062124105E00C74411 /* AppDelegate.swift in Sources */,
 				4744275C212A50D600C74411 /* ProviderProtocol.swift in Sources */,
 				4744274F2126F29100C74411 /* UserDefaults+Extension.swift in Sources */,
 				4744273F2125263F00C74411 /* Image+Extension.swift in Sources */,
 				47C03535212E4C1200B27827 /* CountriesTableViewController.swift in Sources */,
+				47DEEBCF2140CEB900A47A71 /* ObjectToDictionary.swift in Sources */,
+				476A67442138D49B00C47F72 /* UITableViewCell+Extensions.swift in Sources */,
 				4744275A2129754400C74411 /* testData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4744271B2124106000C74411 /* CheapHubTests.swift in Sources */,
+				47DEEBD3214217B700A47A71 /* TempFileDirectoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,13 +844,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65LXM77DMH;
 				INFOPLIST_FILE = CheapHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gk.example.CheapHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -797,7 +865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65LXM77DMH;
 				INFOPLIST_FILE = CheapHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

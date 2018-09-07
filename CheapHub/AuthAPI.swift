@@ -82,18 +82,6 @@ class AuthAPI: ProviderProtocol {
                 completion(.failure(error))
             }
         }
-//        requestJSON(target: TTargetType.login(code: code, state: state)) { response in
-//            switch response {
-//            case .success(let response):
-//                if let tokenString = response["access_token"] as? String {
-//                    completion(.success(tokenString))
-//                } else {
-//                    completion(.failure(NetWorkError.NeedAuthorization))
-//                }
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
     }
 }
 
